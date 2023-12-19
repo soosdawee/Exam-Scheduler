@@ -38,11 +38,11 @@ formulas(programmer).
    all x1 all x2 all y (f(x1,y)=SUB6 -> f(x2,y)!=SUB2 & f(x2,y)!=SUB1 & f(x2,y)!=SUB4 & f(x2,y)!=SUB5 & f(x2,y)!=SUB3).
    
    % Logic
-   f(2, y) = 0.
-   f(0,0)=SUB1. 
-   all x all y (f(x,y) = SUB2 -> (y = 5 & x = 4) | (x = 1 & y != 5 & y != 6)).
-   all x all y (f(x,y) = SUB3 -> (x > 0 & x < 3 & y != 5 & y != 6)).
-   all x all y (f(x,y) = SUB4 -> (x = 1 & y != 5 & y != 6) | (x = 2 & y = 5)).
-   all x all y (f(x,y) = SUB5 -> (x = 6 & y < 2)).
-   all x all y (f(x,y) = SUB6 -> (x = 2 & y = 5) | (x = 0 & y = 1) | (y = 6 & x = 4)).
+   f(2, y) = 0. % mandatory lunch break
+   f(0,0)=SUB1. % first prof wanting to get rid of the exam asap
+   all x all y (f(x,y) = SUB2 -> (y = 5 & x = 4) | (x = 1 & y != 5 & y != 6)). % second prof only available saturday at 18 or weekdays at 10
+   all x all y (f(x,y) = SUB3 -> (x > 0 & x < 3 & y != 5 & y != 6)). % third prof avaialable weekdays between 10 and 14
+   all x all y (f(x,y) = SUB4 -> (x = 1 & y != 5 & y != 6) | (x = 2 & y = 5)). % fourth prof available weekdays at 10 or saturday at 12
+   all x all y (f(x,y) = SUB5 -> (x = 6 & y < 2)). % fifth prof available monday and tuesday between at 20  
+   all x all y (f(x,y) = SUB6 -> (x = 2 & y = 5) | (x = 0 & y = 1) | (y = 6 & x = 4)). % sixth prof available saturday at 12 or tuesday at 8 or sunday at 16
 end_of_list.

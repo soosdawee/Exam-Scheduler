@@ -1,7 +1,7 @@
 ============================== Mace4 =================================
 Mace4 (64) version 2017-11A (CIIRC), November 2017.
-Process 146440 was started by soosdavid on soosdavid,
-Tue Dec 19 04:48:27 2023
+Process 146650 was started by soosdavid on soosdavid,
+Tue Dec 19 05:13:38 2023
 The command was "mace4 -f programmer.in".
 ============================== end of head ===========================
 
@@ -299,9 +299,9 @@ Rules_from_neg_clauses=2864, cross_offs=17453.
 
 ============================== end of statistics =====================
 
-User_CPU=0.09, System_CPU=0.00, Wall_clock=0.
+User_CPU=0.09, System_CPU=0.01, Wall_clock=0.
 
 Exiting with 2 models.
 
-Process 146440 exit (all_models) Tue Dec 19 04:48:27 2023
-The process finished Tue Dec 19 04:48:27 2023
+Process 146650 exit (all_models) Tue Dec 19 05:13:38 2023
+The process finished Tue Dec 19 05:13:38 2023
