@@ -2,13 +2,47 @@ assign(domain_size,7).
 assign(max_models,-1).
 set(arithmetic).
 
-formulas(latin_square).
-   all x  all y1 all y2 (f(x, y1) = f(x, y2) -> y1 = y2).
-   all x1 all x2 all y  (f(x1, y) = f(x2, y) -> x1 = x2).
-   duminica=6.
-   IA = 0.
-   SE = 1.
-   FP = 2.
-   f(0,2)=SE.
-   F(y,6)=duminica.
+formulas(programmer).
+   % Declaring the subjects
+   SUB1 = 1.
+   SUB2 = 2.
+   SUB3 = 3.
+   SUB4 = 4.
+   SUB5 = 5.
+   SUB6 = 6.
+   
+   % Give a test-free day in the middle of the week
+   half = domain_size / 2.
+   f(y, half) = 0.
+   
+   % Making sure every subject is present only once
+   exists x exists y (f(x,y) = SUB3).
+   exists x exists y (f(x,y) = SUB2).
+   exists x exists y (f(x,y) = SUB1).
+   exists x exists y (f(x,y) = SUB4).
+   exists x exists y (f(x,y) = SUB5).
+   exists x exists y (f(x,y) = SUB6).
+   all x1 all x2 all y1 all y2 (f(x1,y1) = SUB1 & f(x2,y2) = SUB1 -> x1 = x2 & y1 = y2).
+   all x1 all x2 all y1 all y2 (f(x1,y1) = SUB2 & f(x2,y2) = SUB2 -> x1 = x2 & y1 = y2).
+   all x1 all x2 all y1 all y2 (f(x1,y1) = SUB3 & f(x2,y2) = SUB3 -> x1 = x2 & y1 = y2).
+   all x1 all x2 all y1 all y2 (f(x1,y1) = SUB4 & f(x2,y2) = SUB4 -> x1 = x2 & y1 = y2).
+   all x1 all x2 all y1 all y2 (f(x1,y1) = SUB5 & f(x2,y2) = SUB5 -> x1 = x2 & y1 = y2).
+   all x1 all x2 all y1 all y2 (f(x1,y1) = SUB6 & f(x2,y2) = SUB6 -> x1 = x2 & y1 = y2).
+   
+   % Making sure only 1 subject / day is allowed
+   all x1 all x2 all y (f(x1,y)=SUB1 -> f(x2,y)!=SUB3 & f(x2,y)!=SUB2 & f(x2,y)!=SUB4 & f(x2,y)!=SUB5 & f(x2,y)!=SUB6).
+   all x1 all x2 all y (f(x1,y)=SUB2 -> f(x2,y)!=SUB3 & f(x2,y)!=SUB1 & f(x2,y)!=SUB4 & f(x2,y)!=SUB5 & f(x2,y)!=SUB6).
+   all x1 all x2 all y (f(x1,y)=SUB3 -> f(x2,y)!=SUB2 & f(x2,y)!=SUB1 & f(x2,y)!=SUB4 & f(x2,y)!=SUB5 & f(x2,y)!=SUB6).
+   all x1 all x2 all y (f(x1,y)=SUB4 -> f(x2,y)!=SUB3 & f(x2,y)!=SUB2 & f(x2,y)!=SUB1 & f(x2,y)!=SUB5 & f(x2,y)!=SUB6).
+   all x1 all x2 all y (f(x1,y)=SUB5 -> f(x2,y)!=SUB3 & f(x2,y)!=SUB1 & f(x2,y)!=SUB4 & f(x2,y)!=SUB2 & f(x2,y)!=SUB6).
+   all x1 all x2 all y (f(x1,y)=SUB6 -> f(x2,y)!=SUB2 & f(x2,y)!=SUB1 & f(x2,y)!=SUB4 & f(x2,y)!=SUB5 & f(x2,y)!=SUB3).
+   
+   % Logic
+   f(2, y) = 0.
+   f(0,0)=SUB1. 
+   all x all y (f(x,y) = SUB2 -> (y = 5 & x = 4) | (x = 1 & y != 5 & y != 6)).
+   all x all y (f(x,y) = SUB3 -> (x > 0 & x < 3 & y != 5 & y != 6)).
+   all x all y (f(x,y) = SUB4 -> (x = 1 & y != 5 & y != 6) | (x = 2 & y = 5)).
+   all x all y (f(x,y) = SUB5 -> (x = 6 & y < 2)).
+   all x all y (f(x,y) = SUB6 -> (x = 2 & y = 5) | (x = 0 & y = 1) | (y = 6 & x = 4)).
 end_of_list.
